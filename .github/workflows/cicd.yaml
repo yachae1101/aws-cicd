@@ -12,7 +12,7 @@ env:
   AWS_REGION: ap-northeast-2
   ECS_CLUSTER: BH-Cluster
   ECS_SERVICE: aws-cicd-service
-  CONTAINER_NAME: aws-cicd
+  CONTAINER_NAME: nginx
   ECS_TASK_DEFINITION: ./task-definition.json
 
 jobs:
