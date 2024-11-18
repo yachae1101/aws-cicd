@@ -16,8 +16,7 @@ env:
   ECS_TASK_DEFINITION: ./task-definition.json
 
 jobs:
-  # Spring Boot 애플리케이션을 빌드하여 도커허 브에 푸시하는 과정
-  build-docker-image:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
