@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:788359277408:task-definition/aws-cicd:8",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:788359277408:task-definition/aws-cicd:1",
   "containerDefinitions": [
     {
       "name": "nginx",
@@ -15,8 +15,10 @@
       ],
       "essential": true,
       "environment": [],
+      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
+      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -26,7 +28,8 @@
           "max-buffer-size": "25m",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
-        }
+        },
+        "secretOptions": []
       },
       "systemControls": []
     }
@@ -34,7 +37,7 @@
   "family": "aws-cicd",
   "executionRoleArn": "arn:aws:iam::788359277408:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 8,
+  "revision": 1,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -45,16 +48,10 @@
       "name": "ecs.capability.execution-role-awslogs"
     },
     {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -80,7 +77,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-11-18T08:30:55.241Z",
-  "registeredBy": "arn:aws:sts::788359277408:assumed-role/aws-cicd/sampleSessionName",
+  "registeredAt": "2024-11-18T06:40:56.161Z",
+  "registeredBy": "arn:aws:iam::788359277408:root",
   "tags": []
 }
