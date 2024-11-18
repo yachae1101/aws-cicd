@@ -1,9 +1,8 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:788359277408:task-definition/aws-cicd:6",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:788359277408:task-definition/aws-cicd:8",
   "containerDefinitions": [
     {
-      "name": "aws-cicd",
-      "image": "788359277408.dkr.ecr.ap-northeast-2.amazonaws.com/aws-cicd:d3762d6233915f047b515b09ae8cd0138ee4f1ac",
+      "name": "nginx",
       "cpu": 0,
       "portMappings": [
         {
@@ -35,7 +34,7 @@
   "family": "aws-cicd",
   "executionRoleArn": "arn:aws:iam::788359277408:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 6,
+  "revision": 8,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -81,7 +80,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-11-18T08:09:57.686Z",
+  "registeredAt": "2024-11-18T08:30:55.241Z",
   "registeredBy": "arn:aws:sts::788359277408:assumed-role/aws-cicd/sampleSessionName",
   "tags": []
 }
