@@ -9,6 +9,11 @@ permissions:
 
 env:
   ECR_REPOSITORY: aws-cicd
+  AWS_REGION: ap-northeast-2
+  ECS_CLUSTER: BH-Cluster
+  ECS_SERVICE: aws-cicd
+  CONTAINER_NAME: aws-cicd
+  ECS_TASK_DEFINITION: ./task-definition.json
 
 jobs:
   # Spring Boot 애플리케이션을 빌드하여 도커허 브에 푸시하는 과정
@@ -60,3 +65,12 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      # Task를 수정하는 작업
+      - name: Fill in the new image ID in the Amazon ECS Task Definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ steps.build-image.outputs.image }}
