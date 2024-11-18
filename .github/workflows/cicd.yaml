@@ -26,3 +26,11 @@ jobs:
         uses: gradle/gradle-build-action@v2.6.0
         with:
           arguments: build
+
+      # AWS 로그인
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::788359277408:role/aws-cicd
+          role-session-name: sampleSessionName
+          aws-region: ap-northeast-2
