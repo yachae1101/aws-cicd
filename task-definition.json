@@ -2,7 +2,8 @@
   "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:788359277408:task-definition/aws-cicd:1",
   "containerDefinitions": [
     {
-      "name": "aws-cicd",
+      "name": "nginx",
+      "image": "nginx",
       "cpu": 0,
       "portMappings": [
         {
